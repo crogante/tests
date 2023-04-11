@@ -5,7 +5,7 @@ import java.util.List;
 public class HayUnParSumanX {
 
     public static boolean isAtLeastOnePairThatSumX(final List<Integer> numbers, final int x) {
-        HashSet mySet = new HashSet();
+        HashSet<Integer> mySet = new HashSet<>();
         for (Integer number: numbers) {
             int y = x - number;
             if (mySet.contains(y)) {

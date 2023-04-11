@@ -1,5 +1,3 @@
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -8,35 +6,22 @@ public class CambioDeBaseV1 {
     private static final Double BASE_2_CONSTANT = 2.0;
 
     public static String convertirABase2(String palabra1) {
-
         int numero1 = Integer.parseInt(palabra1);
-
-        var s = new Stack();
-
+        var s = new Stack<Integer>();
         do {
             double resultado = numero1 % BASE_2_CONSTANT;
-
             int resultadoAEntero = (int) resultado;
-
             s.push(resultadoAEntero);
-
-            double auxiliar = (double) numero1;
-
-            double division = auxiliar /= BASE_2_CONSTANT;
-
-            auxiliar = Math.floor(division);
-
-            numero1 = (int) auxiliar;
-
+            double division = numero1 / BASE_2_CONSTANT;
+            numero1 = (int) Math.floor(division);
         } while (numero1 > 0);
 
-        var converted = "";
-
+        StringBuilder converted = new StringBuilder();
         while (s.size() > 0) {
-            converted += s.pop();
+            converted.append(s.pop());
         }
 
-        return converted;
+        return converted.toString();
     }
 
     public static void main(String[] args) {
